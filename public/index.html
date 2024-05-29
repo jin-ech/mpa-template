@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>mpa-template</title>
+
+    <% for(var css in htmlWebpackPlugin.files.css){ %>
+        <link href="<%=htmlWebpackPlugin.files.css[css]  %>" rel='stylesheet'>
+        <% } %>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <% for(var i=0; i < htmlWebpackPlugin.files.js.length; i++) {%>
+        <script type="text/javascript" src="<%= htmlWebpackPlugin.files.js[i] %>"></script>
+        <% } %>
+</body>
+
+</html>

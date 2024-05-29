@@ -1,0 +1,120 @@
+// @successColor: #52c41a;
+@successColor: @success-color;
+@errorColor: @error-color;
+@warnColoe: @warning-color;
+@iconWidhtHeight: 16px;
+
+@font-color: #888;
+
+.notification-hastime {
+	line-height: 20px;
+	padding: 16px 16px 16px 10px;
+	border: 1px solid rgba(@grey, .4);
+	background: rgba(@grey, .4);
+	z-index: 9999;
+
+	.ant-notification-notice-content {
+
+		.ant-notification-notice-message {
+			font-size: 14px;
+			line-height: 20px;
+			margin-bottom: 0;
+			margin-left: 32px;
+			position: relative;
+			// top: 4px;
+		}
+
+		.ant-notification-notice-icon {
+			height: 20px;
+			width: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			// top: 21px;
+			.anticon {
+				width: @iconWidhtHeight;
+				height: @iconWidhtHeight;
+				font-size: @iconWidhtHeight;
+
+				* {
+					height: @iconWidhtHeight;
+					font-size: @iconWidhtHeight;
+				}
+			}
+		}
+	}
+
+	.ant-notification-notice-close {
+		height: 20px;
+		width: 20px;
+		right: 12px;
+		svg {
+			fill: @font-color;
+		}
+	}
+
+	.message-wrap {
+		display: flex;
+
+		.message-wrap-left {
+			flex: 1;
+			padding: 0 10px 0 0;
+			font-size: 14px;
+			word-break: break-all;
+			color: @font-color;
+		}
+
+		.message-wrap-right {
+			color: @font-color;
+		}
+	}
+
+	&.ant-notification-notice-success {
+		.ant-notification-notice-content {
+			.ant-notification-notice-icon {
+				.anticon {
+					* {
+						color: @successColor !important;
+					}
+				}
+			}
+		}
+	}
+
+	&.ant-notification-notice-error {
+		.ant-notification-notice-content {
+			.ant-notification-notice-icon {
+				.anticon {
+					* {
+						color: @errorColor !important;
+					}
+				}
+			}
+		}
+	}
+
+	&.ant-notification-notice-warning {
+		.ant-notification-notice-content {
+			.ant-notification-notice-icon {
+				.anticon {
+					* {
+						color: @warnColoe !important;
+					}
+				}
+			}
+		}
+	}
+
+	.ant-notification-notice-description {
+		margin: 0;
+
+		.description-wrap {
+			margin: 10px 0 0 32px;
+		}
+	}
+
+	.ant-toast-wrap-right {
+		display: none;
+	}
+}

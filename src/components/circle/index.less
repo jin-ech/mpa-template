@@ -1,0 +1,41 @@
+
+.circle-wrapper {
+    border-radius: 50%;
+    border: 4px solid @primary-color;
+    background-color: #fff;
+    width: 120px;
+    height: 120px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    padding: 8px;
+    position: relative;
+
+    &-inner {
+        background-color: rgba(@primary-color, .2);
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+
+        &-wave {
+            width: 360px;
+            height: 360px;
+            background-color: @primary-color;
+            border-radius: 140px;
+            animation: wave 8s linear infinite;
+            position: absolute;
+            left: -120px;
+            top: 62px;
+        }
+
+        @keyframes wave {
+            from {
+                transform: rotate(0);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    }
+}

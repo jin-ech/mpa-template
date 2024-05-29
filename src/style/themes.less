@@ -1,0 +1,130 @@
+/* 通用宽度以及居中设置 */
+.init-wrapper() {
+    width: @content-width;
+    margin: 0 auto;
+}
+
+/* 页面主题内容高度 */
+.page-height(@height: calc(100vh - 64px - 48px)) {
+    min-height: @height;
+    @return: @height;
+}
+
+.page-height-fix(@height: calc(100vh - 64px - 48px)) {
+    height: @height;
+    @return: @height;
+}
+
+/* 设置滚动条颜色 */
+.scrollbar(@thumb: #bbbbbb, @track: #ededed) {
+    &::-webkit-scrollbar {
+        /*滚动条整体样式*/
+        width: 8px;
+        /*高宽分别对应横竖滚动条的尺寸*/
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        border-radius: 8px;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        background: @thumb;
+    }
+
+    &::-webkit-scrollbar-track {
+        /*滚动条里面轨道*/
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        background: @track;
+    }
+}
+
+/* 居中 */
+.flex-align(@flex-justify: center, @flex-align: center, @direction: row) {
+    display: flex;
+    justify-content: @flex-justify;
+    align-items: @flex-align;
+    flex-direction: @direction;
+}
+
+/* 字体设置 */
+.font(@family: 'Noto Sans',
+    @style: normal,
+    @weight: 600,
+    @size: 20px,
+    @lineHeight: 27px,
+    @color: rgba(0, 0, 0, 0.85),
+) {
+    font-family: @family;
+    font-style: @style;
+    font-weight: @weight;
+    font-size: @size;
+    line-height: @lineHeight;
+
+    color: @color;
+}
+
+/* 将文案设置为链接 */
+.link {
+    user-select: none;
+    cursor: pointer;
+}
+
+/* 单行文案截断 */
+.ellipse {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* 多行文案截断 */
+.ellipse-wrap(@row: 2) {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: @row;
+    -webkit-box-orient: vertical;
+}
+
+/* 卡片排版 */
+.card-list(@screen-mini: 1880px, @screen-large: 2280px, @size1: 33%, @size2: 25%, @size3: 20%) {
+
+    @media (max-width: @screen-mini) {
+        .card {
+            flex-basis: @size1;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    @media (min-width: @screen-mini) and (max-width: @screen-large) {
+        .card {
+            flex-basis: @size2;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    @media (min-width: @screen-large) {
+        .card {
+            flex-basis: @size3;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+/* 边框阴影 */
+.border-shadow {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    transition: all .2s linear;
+
+    &:hover {
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
+    }
+}
+
+.bg {
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
